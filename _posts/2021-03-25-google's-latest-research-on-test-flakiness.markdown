@@ -20,10 +20,10 @@ categories: "software_testing"
 
 ## Additional information
 
-- 2020.07: [ICSE 2020: A Study on the Lifecycle of Flaky Tests](https://www.microsoft.com/en-us/research/publication/a-study-on-the-lifecycle-of-flaky-tests/)
-- 2017.04: [Where do our flaky tests come from](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)
-- 2016.12: [GTAC 2016: How Flaky Tests in Continuous Integration](https://www.youtube.com/watch?v=CrzpkF1-VsA)
-- 2016.05: [Flaky test at google and how we mitigate them](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)
+- 2020.07 Microsoft: [ICSE 2020: A Study on the Lifecycle of Flaky Tests](https://www.microsoft.com/en-us/research/publication/a-study-on-the-lifecycle-of-flaky-tests/)
+- 2017.04 Google: [Where do our flaky tests come from](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)
+- 2016.12 Google: [GTAC 2016: How Flaky Tests in Continuous Integration](https://www.youtube.com/watch?v=CrzpkF1-VsA)
+- 2016.05 Google: [Flaky test at google and how we mitigate them](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html)
 
 ---
 
