@@ -9,13 +9,13 @@ categories: skill
 
 详细操作请参考官网：[Creating a GitHub Pages site with Jekyll](https://docs.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll)
 
-# 安装 Ruby
+## 安装 Ruby
 
 下载 [RubyInstaller](https://rubyinstaller.org/downloads/) 选择 Ruby+Devkit 的安装包，双击安装。
 
 在安装结束时，去除 ridk install 的选项。
 
-# 手工安装 MSYS2
+## 手工安装 MSYS2
 
 查找 Ruby 安装目录下的 `msys64\etc\pacman.d` , 添加 China 国内的更新源：
 
@@ -37,7 +37,7 @@ $ set https_proxy_pass=password
 
 然后执行 `ridk install` 安装 MSYS2，一路 Enter 即可。
 
-# 安装 bundler/jekyll
+## 安装 bundler/jekyll
 
 将 Ruby 的 gem 源替换为国内的：
 {% highlight shell %}
@@ -49,13 +49,13 @@ $ gem source -a https://gems.ruby-china.com --http-proxy http://username:passwor
 $ gem install jekyll bundler
 {% endhighlight %}
 
-# 创建 repository
+## 创建 repository
 
 在 [GitHub] 上创建 repository ，名称必须为 `<user>.github.io` 。
 
-# 使用 jekyll 构建网站
+## 使用 jekyll 构建网站
 
-## 初始化本地仓
+### 初始化本地仓
 
 {% highlight shell %}
 $ git init https://github.com/<user>/<user>.github.io.git
@@ -63,9 +63,9 @@ $ jekyll new .
 # Creates a Jekyll site in the current directory
 {% endhighlight %}
 
-## 修改配置文件
+### 修改配置文件
 
-### Gemfile
+#### Gemfile
 
 注释掉 `gem "jekyll"`, 放开 `gem "github-pages"`.
 
@@ -74,7 +74,7 @@ $ jekyll new .
 gem "github-pages", group: :jekyll_plugins
 ```
 
-### _config.yml
+#### _config.yml
 
 ```
 - title: 安身、立命、静心、养性
@@ -92,7 +92,7 @@ gem "github-pages", group: :jekyll_plugins
 $ bundle update
 {% endhighlight %}
 
-# 添加新帖子
+## 添加新帖子
 
 只需要在 _posts 文件夹中新建 YYYY-MM-DD-NAME-OF-POST.md 文件即可完成发帖。
 帖子的题头格式如下：
@@ -108,7 +108,7 @@ categories: CATEGORY-1 CATEGORY-2
 
 其中 CATEGORY 用来组织最终发布的 url 路径: `skill/2021/03/24/creating-a-github-pages-site-with-jekyll`.html
 
-# 在本地测试网站
+## 在本地测试网站
 
 {% highlight shell %}
 $ bundle exec jekyll serve
@@ -117,7 +117,7 @@ $ bundle exec jekyll serve
 打开 http://127.0.0.1:4000/ 即可。
 
 
-# 维护
+## 维护
 
 {% highlight shell %}
 $ bundle update github-pages
