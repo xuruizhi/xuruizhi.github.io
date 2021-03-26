@@ -2,7 +2,7 @@
 layout: post
 title:  "Google在测试碎片化上的最新研究"
 date:   2021-03-25 15:40:00 +0800
-categories: software testing
+categories: "software_testing"
 ---
 
 # Definition
