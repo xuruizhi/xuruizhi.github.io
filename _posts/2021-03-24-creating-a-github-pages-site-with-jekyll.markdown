@@ -24,7 +24,7 @@ categories: skill
 - mirrorlist.msys: `Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/msys/$arch`
 
 配置 cmd 代理：
-{% highlight shell %}
+```
 $ set http_proxy=http://proxy.xxx.com:port
 $ set https_proxy=http://proxy.xxx.com:port
 
@@ -33,21 +33,21 @@ $ set http_proxy_pass=password
 
 $ set https_proxy_user=username
 $ set https_proxy_pass=password
-{% endhighlight %}
+```
 
 然后执行 `ridk install` 安装 MSYS2，一路 Enter 即可。
 
 ## 安装 bundler/jekyll
 
 将 Ruby 的 gem 源替换为国内的：
-{% highlight shell %}
+```
 $ gem source -a https://gems.ruby-china.com --http-proxy http://username:password@proxy.xxx.com:port --remove https://rubygems.org/
-{% endhighlight %}
+```
 
 然后：
-{% highlight shell %}
+```
 $ gem install jekyll bundler
-{% endhighlight %}
+```
 
 ## 创建 repository
 
@@ -57,11 +57,11 @@ $ gem install jekyll bundler
 
 ### 初始化本地仓
 
-{% highlight shell %}
+```
 $ git init https://github.com/<user>/<user>.github.io.git
 $ jekyll new .
 # Creates a Jekyll site in the current directory
-{% endhighlight %}
+```
 
 ### 修改配置文件
 
@@ -88,9 +88,9 @@ gem "github-pages", group: :jekyll_plugins
 ```
 
 然后：
-{% highlight shell %}
+```
 $ bundle update
-{% endhighlight %}
+```
 
 ## 添加新帖子
 
@@ -110,18 +110,18 @@ categories: CATEGORY-1 CATEGORY-2
 
 ## 在本地测试网站
 
-{% highlight shell %}
+```
 $ bundle exec jekyll serve
-{% endhighlight %}
+```
 
 打开 http://127.0.0.1:4000/ 即可。
 
 
 ## 维护
 
-{% highlight shell %}
+```
 $ bundle update github-pages
-{% endhighlight %}
+```
 
 ---
 
