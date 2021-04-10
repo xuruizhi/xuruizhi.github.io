@@ -24,7 +24,7 @@ C:\Users\xxx>TASKKILL /F /PID 4448
 
 ```
 
-### 自定义 adb 使用的端口号
+### 解决方法2：自定义 adb 使用的端口号
 
 设置环境变量： `ANDROID_ADB_SERVER_PORT`。
 
