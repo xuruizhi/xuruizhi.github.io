@@ -4,5 +4,5 @@ _site
 .jekyll-metadata
 vendor
 
-sample.markdown
+sample.md
 _tmp
