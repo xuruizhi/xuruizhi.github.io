@@ -24,7 +24,9 @@ categories: skill
 - mirrorlist.msys: `Server = https://mirrors.tuna.tsinghua.edu.cn/msys2/msys/$arch`
 
 配置 cmd 代理：
-```
+
+```bash
+#!/bin/bash
 $ set http_proxy=http://proxy.xxx.com:port
 $ set https_proxy=http://proxy.xxx.com:port
 
@@ -40,12 +42,16 @@ $ set https_proxy_pass=password
 ## 安装 bundler/jekyll
 
 将 Ruby 的 gem 源替换为国内的：
-```
+
+```bash
+#!/bin/bash
 $ gem source -a https://gems.ruby-china.com --http-proxy http://username:password@proxy.xxx.com:port --remove https://rubygems.org/
 ```
 
 然后：
-```
+
+```bash
+#!/bin/bash
 $ gem install jekyll bundler
 ```
 
@@ -57,7 +63,8 @@ $ gem install jekyll bundler
 
 ### 初始化本地仓
 
-```
+```bash
+#!/bin/bash
 $ git init https://github.com/<user>/<user>.github.io.git
 $ jekyll new .
 # Creates a Jekyll site in the current directory
@@ -69,14 +76,16 @@ $ jekyll new .
 
 注释掉 `gem "jekyll"`, 放开 `gem "github-pages"`.
 
-```
+```bash
+#!/bin/bash
 # gem "jekyll"
 gem "github-pages", group: :jekyll_plugins
 ```
 
 #### _config.yml
 
-```
+```bash
+#!/bin/bash
 - title: 安身、立命、静心、养性
 - email: ruizhi_xu@163.com
 - description: >- # this means to ignore newlines until "baseurl:"
@@ -88,7 +97,9 @@ gem "github-pages", group: :jekyll_plugins
 ```
 
 然后：
-```
+
+```bash
+#!/bin/bash
 $ bundle update
 ```
 
@@ -97,7 +108,8 @@ $ bundle update
 只需要在 _posts 文件夹中新建 YYYY-MM-DD-NAME-OF-POST.md 文件即可完成发帖。
 帖子的题头格式如下：
 
-```
+```bash
+#!/bin/bash
 ---
 layout: post
 title: "POST TITLE"
@@ -110,16 +122,17 @@ categories: CATEGORY-1 CATEGORY-2
 
 ## 在本地测试网站
 
-```
+```bash
+#!/bin/bash
 $ bundle exec jekyll serve
 ```
 
 打开 http://127.0.0.1:4000/ 即可。
 
-
 ## 维护
 
-```
+```bash
+#!/bin/bash
 $ bundle update github-pages
 ```
 

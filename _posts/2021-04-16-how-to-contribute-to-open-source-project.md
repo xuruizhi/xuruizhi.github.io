@@ -8,6 +8,7 @@ categories: skill
 本文档以在 GitHub 上参与 [NullAway项目](https://github.com/uber/NullAway) 为例，介绍如何参与开源项目开发。其余代码托管网站的操作都类似。
 
 ## 1. Fork the project repository - Fork 需要参与的 项目仓
+
 Fork: 分叉、派生。为什么需要 Fork? 因为对于非本人的仓库，没有权限做任何修改，需要基于`项目仓`分叉出自己的`Fork仓`，在Fork仓上修改后，提交 PR(Pull Request)，经项目维护者Accept PR后，代码才会合入`项目仓`。
 
 在 项目仓 [https://github.com/uber/NullAway](https://github.com/uber/NullAway) 页面
@@ -15,10 +16,13 @@ Fork: 分叉、派生。为什么需要 Fork? 因为对于非本人的仓库，�
 ![fork-on-github](/images/2021.04.16/fork-on-github.png)
 
 ## 2. Clone your fork - 克隆 Fork 仓 到本地
+
 `$ git clone git@github.com:xuruizhi/NullAway.git`
 
 查看远程仓库，可得：
-```
+
+```bash
+#!/bin/bash
 $ git remote -v
 origin  https://github.com/xuruizhi/NullAway.git (fetch)
 origin  https://github.com/xuruizhi/NullAway.git (push)
@@ -31,7 +35,9 @@ origin  https://github.com/xuruizhi/NullAway.git (push)
 `$ git remote add upstream git@github.com:uber/NullAway.git`
 
 查看远程仓库，可得：
-```
+
+```bash
+#!/bin/bash
 $ git remote -v
 origin  https://github.com/xuruizhi/NullAway.git (fetch)
 origin  https://github.com/xuruizhi/NullAway.git (push)
@@ -58,9 +64,11 @@ upstream        https://github.com/uber/NullAway.git (push)
 `$ git checkout -b fixbugs`
 
 ## 6. 在新分支上进行开发
+
 代码修改后：
 
-```
+```bash
+#!/bin/bash
 $ git add -A                # 添加所有修改文件到暂存区
 $ git commit                # 提交修改，并设置提交信息
 $ git push origin fixbugs   # 推送到远程 Fork 仓的 fixbugs 分支
@@ -77,6 +85,7 @@ $ git push origin fixbugs   # 推送到远程 Fork 仓的 fixbugs 分支
 ## 8. Review the pull request - 审查 PR
 
 项目维护者会在线审查提交的PR：
+
 - 如果符合要求，则直接合入。
 - 如果不符合，需要根据反馈意见进行修改，重复 步骤 6 直到符合。
 
@@ -86,7 +95,8 @@ $ git push origin fixbugs   # 推送到远程 Fork 仓的 fixbugs 分支
 
 Delete your branch from your fork - 删除远程分支
 
-```
+```bash
+#!/bin/bash
 $ git push origin --delete fixbugs
 To https://github.com/xuruizhi/NullAway.git
  - [deleted]         fixbugs
@@ -94,7 +104,8 @@ To https://github.com/xuruizhi/NullAway.git
 
 Delete your branch from your local repository - 删除本地分支
 
-```
+```bash
+#!/bin/bash
 $ git checkout master
 $ git branch -d fixbugs
 ```
@@ -104,6 +115,7 @@ $ git branch -d fixbugs
 提交的代码变更只合入了`项目仓`，这就造成了`本地仓`、`Fork 仓`和`项目仓`的不同步。
 
 ### 切换到 master 分支
+
 switch to the `master` branch:
 
 `$ git checkout master`
@@ -114,9 +126,11 @@ pull the latest changes from `upstream` (the project repository) into your `loca
 `$ git pull upstream master`
 
 ### 上传本地仓代码到 origin 的 master 分支
+
 push those changes from your local repository to the "origin" (your fork)
 
 `$ git push origin master`
 
 ## References
+
 [Step-by-step guide to contributing on GitHub](https://www.dataschool.io/how-to-contribute-on-github/)
