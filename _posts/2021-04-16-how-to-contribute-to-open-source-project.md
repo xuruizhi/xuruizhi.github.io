@@ -9,7 +9,7 @@ categories: skill
 
 ## 1. Fork the project repository - Fork 需要参与的 项目仓
 
-Fork: 分叉、派生。为什么需要 Fork? 因为对于非本人的仓库，没有权限做任何修改，需要基于`项目仓`分叉出自己的`Fork仓`，在Fork仓上修改后，提交 PR(Pull Request)，经项目维护者Accept PR后，代码才会合入`项目仓`。
+Fork: 分叉、派生。为什么需要 Fork? 因为对于非本人的仓库，没有权限做任何修改，需要基于**项目仓**分叉出自己的**Fork仓**，在Fork仓上修改后，提交 PR(Pull Request)，经项目维护者Accept PR后，代码才会合入**项目仓**。
 
 在 项目仓 [https://github.com/uber/NullAway](https://github.com/uber/NullAway) 页面
 点击右上角的 `Fork` 按钮，即可得到本人的 Fork 仓: [https://github.com/xuruizhi/NullAway](https://github.com/xuruizhi/NullAway) 。
@@ -28,7 +28,7 @@ origin  https://github.com/xuruizhi/NullAway.git (fetch)
 origin  https://github.com/xuruizhi/NullAway.git (push)
 ```
 
-可以看到，`Fetch 仓`被设置为当前本地仓库关联的远程仓，命名为默认值 origin。
+可以看到，**Fetch 仓**被设置为当前本地仓库关联的远程仓，命名为默认值 origin。
 
 ## 3. Add the project repository as the "upstream" remote - 添加 项目仓 关联，并命名为 upstream
 
@@ -56,11 +56,12 @@ upstream        https://github.com/uber/NullAway.git (push)
 ## 4. Pull the latest changes from upstream into your local repository - 拉取 项目仓 最新代码到 本地仓
 
 在本地开发之前，需要保证本地代码与远程代码的一致性，以减少代码冲突。
-拉取`项目仓`master分支最新代码到`本地仓`。
+拉取**项目仓**master分支最新代码到**本地仓**。
 
 `$ git pull upstream master`
 
 ## 5. Create a new branch - 新建开发分支并切换到新分支
+
 `$ git checkout -b fixbugs`
 
 ## 6. 在新分支上进行开发
@@ -112,7 +113,7 @@ $ git branch -d fixbugs
 
 ## 10. Synchronize your fork with the project repository - 更新 Fork 仓
 
-提交的代码变更只合入了`项目仓`，这就造成了`本地仓`、`Fork 仓`和`项目仓`的不同步。
+提交的代码变更只合入了**项目仓**，这就造成了**本地仓**、**Fork 仓**和**项目仓**的不同步。
 
 ### 切换到 master 分支
 
@@ -121,7 +122,8 @@ switch to the `master` branch:
 `$ git checkout master`
 
 ### 更新 upstream 的 master 分支最新代码到本地仓库
-pull the latest changes from `upstream` (the project repository) into your `local repository`
+
+pull the latest changes from **upstream** (the project repository) into your **local repository**
 
 `$ git pull upstream master`
 
