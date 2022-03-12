@@ -29,7 +29,7 @@ GitHub Actions 是 GitHub 的**持续集成**服务，于2018年10月推出。
 
 ### 基本概念
 
-![github-actions](/images/2022.03.12/github-actions.png)
+![github-actions](https://miro.medium.com/max/1400/1*8mUtip6z_oydfLi4P86KUw.png)
 
 1. workflow （工作流程）：持续集成一次运行的过程，就是一个 workflow。
 2. job （任务）：一个 workflow 由一个或多个 jobs 构成，含义是一次持续集成的运行，可以完成多个任务。
