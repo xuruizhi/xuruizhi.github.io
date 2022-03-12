@@ -30,7 +30,7 @@ github_username:  xuruizhi
 # Build settings
 theme: jekyll-theme-leap-day
 plugins:
-- jekyll-feed
+  - jekyll-feed
 
 markdown: kramdown
 
