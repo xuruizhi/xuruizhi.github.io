@@ -28,10 +28,9 @@ twitter_username: xuruizhi1983
 github_username:  xuruizhi
 
 # Build settings
-remote_theme: pages-themes/leap-day@v0.2.0
+theme: jekyll-theme-leap-day
 plugins:
 - jekyll-feed
-- jekyll-remote-theme
 
 markdown: kramdown
 
