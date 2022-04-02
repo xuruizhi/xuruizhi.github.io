@@ -70,7 +70,7 @@ JobDetail jobDetail = JobBuilder.newJob()
         .build();
 ```
 
-![jobbuilder-method](../images/2022.04.01/2022-04-01-10-51-34-jobbuilder-method.png)
+![jobbuilder-method](/images/2022.04.01/2022-04-01-10-51-34-jobbuilder-method.png)
 
 #### JobKey
 
@@ -78,7 +78,7 @@ JobDetail jobDetail = JobBuilder.newJob()
 JobKey jobKey = jobDetail.getKey();
 ```
 
-![JobKey](../images/2022.04.01/2022-04-02-15-46-23-JobKey.png)
+![JobKey](/images/2022.04.01/2022-04-02-15-46-23-JobKey.png)
 
 #### JobDataMap
 
@@ -86,7 +86,7 @@ JobKey jobKey = jobDetail.getKey();
 JobDataMap jobDataMap = jobDetail.getJobDataMap();
 ```
 
-![JobDataMap](../images/2022.04.01/2022-04-02-15-43-35-JobDataMap.png)
+![JobDataMap](/images/2022.04.01/2022-04-02-15-43-35-JobDataMap.png)
 
 ### Job: 任务
 
@@ -106,7 +106,7 @@ public class MyJob implements Job {
 
 #### JobExecutionContext: Job执行的上下文，可以获取 JobDetail 等
 
-![JobExecutionContext](../images/2022.04.01/2022-04-01-17-09-16-jobExecutionContext.png)
+![JobExecutionContext](/images/2022.04.01/2022-04-01-17-09-16-jobExecutionContext.png)
 
 ---
 
@@ -130,7 +130,7 @@ Trigger trigger = TriggerBuilder
         .build();
 ```
 
-![trigger-method](../images/2022.04.01/2022-04-01-10-46-48-trigger-method.png)
+![trigger-method](/images/2022.04.01/2022-04-01-10-46-48-trigger-method.png)
 
 ### ScheduleBuilder
 
