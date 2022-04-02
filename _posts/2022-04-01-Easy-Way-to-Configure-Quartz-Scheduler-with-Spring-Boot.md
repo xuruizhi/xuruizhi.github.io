@@ -2,7 +2,7 @@
 layout: post
 title:  "spring-boot-starter-quartz 使用简要"
 date:   2021-04-01 15:40:00 +0800
-categories: "software_development", 
+categories: "software_development"
 ---
 
 ## 简介
