@@ -15,7 +15,7 @@ Fork: 分叉、派生。为什么需要 Fork? 因为对于非本人的仓库，�
 点击右上角的 `Fork` 按钮，即可得到本人的 Fork 仓: [https://github.com/xuruizhi/NullAway](https://github.com/xuruizhi/NullAway) 。
 ![fork-on-github](/images/2021.04.16/fork-on-github.png)
 
-## 2. Clone your fork - 克隆 Fork 仓 到本地
+## 2. Clone your fork - 克隆 Fork仓 到本地
 
 `$ git clone git@github.com:xuruizhi/NullAway.git`
 
@@ -28,7 +28,7 @@ origin  https://github.com/xuruizhi/NullAway.git (fetch)
 origin  https://github.com/xuruizhi/NullAway.git (push)
 ```
 
-可以看到，**Fetch 仓**被设置为当前本地仓库关联的远程仓，命名为默认值 origin。
+可以看到，**Fork 仓**被设置为当前本地仓库关联的远程仓，命名为默认值 origin。
 
 ## 3. Add the project repository as the "upstream" remote - 添加 项目仓 关联，并命名为 upstream
 
