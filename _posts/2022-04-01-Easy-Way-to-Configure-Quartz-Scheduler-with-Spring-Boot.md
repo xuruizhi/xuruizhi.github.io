@@ -63,10 +63,10 @@ https://docs.spring.io/spring-boot/docs/2.0.0.M3/reference/html/boot-features-qu
 ```Java
 JobDetail jobDetail = JobBuilder.newJob()
         .ofType(MyJob.class)                             // Class 关联的Job类
-        .setJobData(new JobDataMap())                       // DataMap 数据Map
+        .setJobData(new JobDataMap())                    // DataMap 数据Map
         .withIdentity(new JobKey("MyJob"))               // [name, group] [名称，分组]，每个Job唯一
         .withDescription("MyJob")                        // Description 描述
-        .storeDurably(false)                                // Durably 持久化，指示Job在孤立后是否应继续存储（没有触发器指向它时）
+        .storeDurably(false)                             // Durably 持久化，指示Job在孤立后是否应继续存储（没有触发器指向它时）
         .build();
 ```
 
