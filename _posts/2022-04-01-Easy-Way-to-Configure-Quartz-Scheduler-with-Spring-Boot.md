@@ -7,7 +7,7 @@ categories: "software_development"
 
 ## 简介
 
-https://docs.spring.io/spring-boot/docs/2.0.0.M3/reference/html/boot-features-quartz.html
+<https://docs.spring.io/spring-boot/docs/2.0.0.M3/reference/html/boot-features-quartz.html>
 
 官网：
 <https://github.com/quartz-scheduler/quartz>
