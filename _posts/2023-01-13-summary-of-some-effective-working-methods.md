@@ -59,6 +59,8 @@ Key Results:
 
 (https://izualzhy.cn/monotasking-reading)
 
+---
+
 ### PDCA原则/戴明环
 
 ![戴明环](https://upload.wikimedia.org/wikipedia/commons/4/42/PDCA-Multi-Loop.png)
@@ -70,6 +72,7 @@ Key Results:
 3. C(Check) 检查，做完了，之后就是要检查下自己做的结果有没有达成，哪些做得好，哪些做得差，做得好的继续保持，做得差的就改进。
 
 4. A（Act）处理，根据检查结果，成功经验继续沿用，失败教训总结改进，并且实施改进措施。没有完成的，作为下一个P里的输入进入下一个PDCA 循环。
+
 ---
 
 ### 6W2H/八何分析法
@@ -84,6 +87,8 @@ Key Results:
 6. Who: 机构、组织、人
 7. How to do: 如何提高效率
 8. How Much: 费用、性价比
+
+---
 
 ## 时间管理
 
