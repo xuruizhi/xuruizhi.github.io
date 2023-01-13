@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "一些有效的工作方法汇总"
-date:   2023-01-13 18:00:00 +0800
+date:   2023-01-13 8:00:00 +0800
 categories: "skill"
 ---
 
