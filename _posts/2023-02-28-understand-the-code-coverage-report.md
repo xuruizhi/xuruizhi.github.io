@@ -46,10 +46,10 @@ $ istanbul cover cov.js
 
 ### 说明
 
-语句(statement): 指编程语句，如赋值语句、控制语句、返回语句等
-行(line): 指可执行代码行（Lines of Executable Code），而不是源文件中所有的代码行
-分支(branch): 指控制结构的某个执行路径，如if语句中条件为true的路径即为1个分支
-函数(function): 代码中定义的函数
+- 语句(statement): 指编程语句，如赋值语句、控制语句、返回语句等
+- 分支(branch): 指控制结构的某个执行路径，如if语句中条件为true的路径即为1个分支
+- 函数(function): 代码中定义的函数
+- 行(line): 指可执行代码行(Lines of Executable Code)，而不是源文件中所有的代码行
 
 #### 语句覆盖率
 
@@ -75,8 +75,8 @@ $ istanbul cover cov.js
 
 ## 应用
 
-对于质量要求不高的程序，使用语句覆盖率进行评估即可。
-而对于质量要求非常严格的程序，则需要使用分支覆盖率，甚至条件覆盖率、修改条件/判断覆盖([MCDC](https://en.wikipedia.org/wiki/Modified_condition/decision_coverage))进行评估，这里就不一一赘述了。
+- 对于质量要求不高的程序，使用语句覆盖率进行评估即可。
+- 对于质量要求非常严格的程序，则需要使用分支覆盖率，甚至条件覆盖率、修改条件/判断覆盖([MCDC](https://en.wikipedia.org/wiki/Modified_condition/decision_coverage))进行评估，这里就不一一赘述了。
 
 ## 参考
 
