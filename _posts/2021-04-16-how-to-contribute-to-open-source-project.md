@@ -136,3 +136,10 @@ push those changes from your local repository to the "origin" (your fork)
 ## References
 
 [Step-by-step guide to contributing on GitHub](https://www.dataschool.io/how-to-contribute-on-github/)
+
+## Tips
+
+### 拉取远程分支并创建本地分支
+
+如果项目仓新增了分支，可以使用如下命令进行同步：
+`$ git checkout -b 本地分支 upstream 远程分支`
