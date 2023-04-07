@@ -28,7 +28,7 @@ twitter_username: xuruizhi1983
 github_username:  xuruizhi
 
 # Build settings
-theme: just-the-docs
+theme: minima
 plugins:
   - jekyll-feed
 
