@@ -28,14 +28,14 @@ twitter_username: xuruizhi1983
 github_username:  xuruizhi
 
 # Build settings
-theme: just-the-docs
-plugins:
-  - jekyll-feed
-
-# remote_theme: pages-themes/modernist@v0.2.0
+# theme: just-the-docs
 # plugins:
-# - jekyll-feed
-# - jekyll-remote-theme # add this line to the plugins list if you already have one
+#   - jekyll-feed
+
+remote_theme: pages-themes/modernist@v0.2.0
+plugins:
+- jekyll-feed
+- jekyll-remote-theme # add this line to the plugins list if you already have one
 
 markdown: kramdown
 
