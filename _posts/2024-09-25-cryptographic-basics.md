@@ -7,7 +7,7 @@ categories: "software_testing"
 
 ## 密码学 (cryptography)
 
-密码学是使用**加解密、单向散列、消息认证码、数字签名**等技术，确保数据在存储、传输等过程中的**机密性(Confidentiality)、完整性(Integrity)、认证性(Authentication)、不可否认性(Non-repudiation)**的一门科学，其结合了数学、计算机科学、电子与通信等多学科的知识。
+密码学是使用**加解密、单向散列、消息认证码、数字签名**等技术，确保数据在存储、传输等过程中的**机密性Confidentiality、完整性Integrity、认证性Authentication、不可否认性Non-repudiation**的一门科学，其结合了数学、计算机科学、电子与通信等多学科的知识。
 
 ## 加解密
 
