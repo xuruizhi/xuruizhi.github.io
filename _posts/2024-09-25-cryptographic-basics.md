@@ -85,6 +85,17 @@ categories: "software_testing"
 如何确保CA的公钥不被仿冒？
 - 也无法100%保证，只是CA（类比银行）的被信任度相对高很多，使用数字证书方式，将CA的被信任度传递到了证书申请者身上。
 
+## SSL/TLS(HTTPS, HTTP over SSL/TLS)
+
+SSL/TLS提供了一种安全可信的密码通信框架，其综合运用了对称密码、消息认证码、非对称密码、数字签名等密码技术，而且这些技术中的具体参数均可以进行替换（提供多种密码技术的一些组合套件供通信双方协商后使用）。
+
+以 TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 密码套件为例：
+- TLS（Transport Layer Security）: 表示这是传输层安全协议的一个密码套件。
+- DHE (Diffie-Hellman Ephemeral): 密钥交换算法，用于协商出对消息片段进行对称加密的对称密钥；
+- ECDSA (Elliptic Curve Digital Signature Algorithm): 数字签名算法，用来验签；
+- AES_128_GCM: 用来加密消息片段的对称加密算法；
+- SHA256 (Secure Hash Algorithm 256-bit): 消息认证码的算法，用于保证数据完整性与认证。
+
 ---
 
 ## 参考文献
