@@ -104,6 +104,25 @@ SSL/TLS提供了一种安全可信的密码通信框架，其综合运用了对�
 - AES_128_GCM: 用来加密消息片段的对称加密算法；
 - SHA256 (Secure Hash Algorithm 256-bit): 消息认证码的算法，用于保证数据完整性与认证。
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    critical Signature Phase    
+    Client->>Server: Client Hello
+    Server->>Client: Server Hello & Certificate
+    Client->>Server: Client Certificate
+    end
+    critical Key Exchange Phase
+    Client->>Server: Client Key Exchange
+    Server->>Client: Server Key Exchange
+    end
+    critical Record Phase
+    Client->>Server: Encrypted Payload
+    Server->>Client: Encrypted Payload
+    end
+```
+
 #### IPSec(Internet Protocol Security)，网络层安全通信协议
 
 ---
