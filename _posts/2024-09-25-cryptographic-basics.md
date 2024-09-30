@@ -5,19 +5,17 @@ date:   2024-09-25 16:00:00 +0800
 categories: "software_testing"
 ---
 
-## 密码学 (Cryptography)
+> 密码学(Cryptography)是使用**加解密、单向散列、消息认证码、数字签名**等技术，确保数据在存储、传输等过程中的**机密性Confidentiality、完整性Integrity、认证性Authentication、不可否认性Non-repudiation**的一门科学，其结合了数学、计算机科学、电子与通信等多学科的知识。
 
-密码学是使用**加解密、单向散列、消息认证码、数字签名**等技术，确保数据在存储、传输等过程中的**机密性Confidentiality、完整性Integrity、认证性Authentication、不可否认性Non-repudiation**的一门科学，其结合了数学、计算机科学、电子与通信等多学科的知识。
+## Primitive（原语）
 
-### Primitive（原语）
-
-#### 加解密（Encryption and Decryption）
+### 加解密（Encryption and Decryption）
 
 > 密码系统：密码算法+密钥，密码算法是公开的，密钥才需要保密[^1]，解决的是**机密性Confidentiality**问题。  
   - 密码算法：常用的对称密码算法有AES、非对称密码算法有RSA。  
   - 密钥：密钥(key)就是一个巨大的数字，衡量一个密钥的强度需要看其密钥空间的大小，即可能出现的密钥的总数量，密钥空间的大小是由密钥长度决定的。
 
-##### 对称密码学(Symmetric Cryptography)
+#### 对称密码学(Symmetric Cryptography)
 
 数据发送方和接收方使用相同的密钥——**对称密钥**（加密密钥=解密密钥）、使用**对称加解密算法**进行通信。  
 对称密钥需要保密，因为如果对称密钥泄露，窃听者就可以对密文进行解密，所以面临着密钥配送难题。
@@ -33,7 +31,7 @@ categories: "software_testing"
 3. 通过Diffie-Hellman密钥交换来解决：在进行加密通信的双方传递一些非秘密信息，即可以协商出相同的对称密钥。该协议的安全性基于离散对数问题的计算复杂性（需要注意的是，Diffie-Hellman 本身是基于非对称密码学原理设计的，因为它涉及到公钥和私钥的概念：每个参与者都有自己的私钥和对应的公钥。但最终的结果是一个共享的对称密钥，而不是一对非对称密钥）；
 4. 通过非对称密码学来解决：使用公钥加密对称密钥，配送的是对称密钥的密文，只有拥有私钥（接收者本人）的人才能解密得到对称密钥；
 
-##### 非对称密码（公钥密码）学(Asymmetric Cryptography)
+#### 非对称密码（公钥密码）学(Asymmetric Cryptography)
 
 数据发送方和接收方使用不同的密钥——**非对称密钥**（加密密钥=公钥、解密密钥=私钥）、使用**非对称加解密算法**进行通信。    
 
@@ -48,15 +46,15 @@ categories: "software_testing"
 
 密钥生成：生成非对称密钥（即公钥和私钥对）的方法主要依赖于所选择的公钥加密算法，生成的一组对应的密钥对（公钥+私钥）。如：RSA算法、ECC椭圆曲线算法等。
 
-#### 单向散列（Hash, 哈希）函数
+### 单向散列（Hash, 哈希）函数
 
 单向散列函数是一种将长消息转换为短散列值的技术，用于确保消息的**完整性(Integrity)**。
 - 消息不同散列值也不同，具有抗碰撞性（collision resistance）；
 - 所使用的单向散列函数决定了散列值的长度，和消息本身的长度无关；如SHA-256，其计算出来的散列值长度永远是256bit（即32bytes）。
 
-### Schema（方法）
+## Schema（方法）
 
-#### 消息认证码（Message Authentication Code）
+### 消息认证码（Message Authentication Code）
 
 消息认证码是一种能确认**完整性Integrity并进行认证Authentication**的技术。它的输入包括任意长度的消息和一个发送者与接收者之间共享的对称密钥，输出固定长度的数据，称为MAC值。可以理解为一种与密钥相关联的单向散列函数[^2]。
 - 消息中哪怕发生1bit的变化，MAC值也会发生变化 —— 完整性
@@ -66,7 +64,7 @@ categories: "software_testing"
 1. 只能在收发双方间进行认证，无法向第三方证明
 2. 无法防止否认
 
-#### 数字签名（Digital Signature）
+### 数字签名（Digital Signature）
 
 数字签名是一种能够对第三方进行消息认证，并能够防止通信双方做出否认的技术。它解决了**完整性(Integrity)、认证性(Authentication)、不可否认性(Non-repudiation)**。
 - 消息发送方A：计算消息的散列值，然后使用**自己的私钥**对散列值进行加密，生成此份消息的数字签名，将消息和签名一起发送给接收方B；
@@ -75,7 +73,7 @@ categories: "software_testing"
 数字签名无法解决的问题：
 - 中间人攻击：与非对称密码技术一样，数字签名也面临着中间人攻击，攻击者可以在通信中间使用自己的公钥替换通信双方公钥。需要采用数字证书（对公钥加上数字签名）技术解决，确保公钥属于真正的**消息发送方**。
 
-#### 数字证书（Digital Certificate）
+### 数字证书（Digital Certificate）
 
 数字证书（公钥证书）是由认证机构（Certification Authority, CA）颁发的，用来认定公钥确实属于某人。证书里面包含：姓名、组织、邮箱地址等个人信息，以及属于此人的公钥，并由CA施加了数字签名（使用CA的私钥加密需要认证的公钥）。
 - 完整性：公钥与个人信息未被篡改；
@@ -89,11 +87,11 @@ categories: "software_testing"
 如何确保CA的公钥不被仿冒？
 - 也无法100%保证，只是CA（类比银行）的被信任度相对高很多，使用数字证书方式，将CA的被信任度传递到了证书申请者身上。
 
-### Protocol/Solution（协议、解决方案）
+## Protocol/Solution（协议、解决方案）
 
-#### SSH(Secure Shell)，应用层安全通信协议
+### SSH(Secure Shell)，应用层安全通信协议
 
-#### SSL/TLS(HTTPS, HTTP over SSL/TLS)，传输层安全通信协议
+### SSL/TLS(HTTPS, HTTP over SSL/TLS)，传输层安全通信协议
 
 SSL/TLS提供了一种安全可信的密码通信框架，其综合运用了对称密码、消息认证码、非对称密码、数字签名等密码技术，而且这些技术中的具体参数均可以进行替换（提供多种密码技术的一些组合套件供通信双方协商后使用）。
 
@@ -123,7 +121,7 @@ sequenceDiagram
     end
 ```
 
-#### IPSec(Internet Protocol Security)，网络层安全通信协议
+### IPSec(Internet Protocol Security)，网络层安全通信协议
 
 ---
 
