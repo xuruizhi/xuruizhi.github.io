@@ -65,6 +65,7 @@ Surface.convert() 的主要作用是将 Surface 对象转换为当前显示模�
 Rect 只是一个矩形 —— 仅由其左上角的位置、宽度和高度定义。许多 pygame 函数将 rects 作为参数。定义 rect 后可以访问 Rect 的实用程序函数，这些函数包括移动、缩小和膨胀 rect、查找两个 rect 的并集以及各种碰撞检测函数。
 
 ```Python
+# 使用坐标和尺寸参数直接创建 Rect 对象
 rect = pygame.Rect(10, 20, 30, 30)
 rect = pygame.Rect((10, 20, 30, 30))
 rect = pygame.Rect((10, 20), (30, 30))
@@ -105,8 +106,6 @@ The first is by directly checking the state of the device. You do this by callin
 > 第一种是直接检查设备的状态。您可以通过以下方式执行此操作：
 例如，调用 pygame.mouse.get_pos() 获取鼠标光标位置或 pygame.key.get_pressed() 获取所有键盘按钮的状态。
 
-The second method uses the SDL event queue. This queue is a list of events -- events are added to the list as they're detected, and they're deleted from the queue as they're read off.
-
 优点：
 1. 获取的是实时状态 -- 如果 mouse.get_pressed([0]) 为 1，则表示此时此刻鼠标左键处于按下状态。
 2. 它很容易检测到 “chording”，也就是说，同时存在多个状态。如果你想知道 t 和 f 键是否同时关闭，只需检查：
@@ -117,6 +116,8 @@ if key.get_pressed[K_t] and key.get_pressed[K_f]:
 
 缺点：
 1. 它只报告设备在被调用时的状态：如果用户点击鼠标按钮，然后在调用 mouse.get_pressed() 之前松开它，则鼠标按钮将返回 0 -- get_pressed() 完全错过了鼠标按钮按下。
+
+The second method uses the SDL event queue. This queue is a list of events -- events are added to the list as they're detected, and they're deleted from the queue as they're read off.
 
 > 第二种方法使用 SDL 事件队列。此队列是一个事件列表 -- 检测到事件时将事件添加到列表中，并在读取事件时从队列中删除事件。
 
