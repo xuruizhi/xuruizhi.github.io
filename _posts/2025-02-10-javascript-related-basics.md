@@ -221,5 +221,7 @@ Electron应用本质上是一个增强版的Node.js应用：主进程使用Node.
 
 简单来说，Node.js为Electron提供了后端能力支撑，而Electron通过整合浏览器引擎，让Node.js具备了构建图形界面应用的能力，形成"Web前端界面+Node.js系统操作"的桌面开发方案。
 
+![image](https://github.com/user-attachments/assets/50803805-b92b-4780-88ce-59ab5c1601e3)
+
 ## References
 
