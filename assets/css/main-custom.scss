@@ -48,17 +48,53 @@ main > .row > [class*="col-"] {
   padding-right: 0;
 }
 
-// 首页大标题跟随容器撑满，保持一整行
+// 页头（header）不在 <main> 内，需要单独压平栅格，
+// 否则它的 col-xl-8 / offset-xl-2 会让标题比正文窄、且整体偏右
+.intro-header .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.intro-header .row > [class*="col-"] {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// 页头文案居中：主题只给 .page-heading 设了居中，
+// 文章页用的是 .post-heading，这里补上
 .intro-header .page-heading,
-.intro-header h1 {
+.intro-header .post-heading {
+  text-align: center;
+}
+
+// 首页大标题：整行显示
+.intro-header .page-heading h1 {
   max-width: 100% !important;
   white-space: nowrap;
   letter-spacing: -.03em;
 }
 
+// 文章标题较长，允许正常折行（不强制单行）
+.intro-header .post-heading h1 {
+  max-width: 100% !important;
+  white-space: normal;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+
+// 副标题与标题对齐
+.intro-header .post-subheading,
+.intro-header .page-subheading {
+  display: block;
+  max-width: 100%;
+}
+
 // 窄屏下允许折行并缩小字号，避免标题溢出被截断
 @media (max-width: 768px) {
-  .intro-header .page-heading,
+  .intro-header .page-heading h1,
   .intro-header h1 {
     white-space: normal !important;
     font-size: 2.1rem !important;
@@ -66,10 +102,15 @@ main > .row > [class*="col-"] {
     letter-spacing: -.02em;
     overflow-wrap: anywhere;
   }
+
+  .intro-header .post-subheading,
+  .intro-header .page-subheading {
+    font-size: 1.05rem !important;
+  }
 }
 
 @media (max-width: 420px) {
-  .intro-header .page-heading,
+  .intro-header .page-heading h1,
   .intro-header h1 {
     font-size: 1.75rem !important;
   }
