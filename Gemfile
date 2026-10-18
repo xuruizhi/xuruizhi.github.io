@@ -1,33 +1,28 @@
 source "https://rubygems.org"
-# Hello! This is where you manage which Jekyll version is used to run.
-# When you want to use a different version, change it below, save the
-# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
+
+# GitHub Pages 会用它自己的构建环境编译本站，
+# 这个 Gemfile 的主要用途是：本地预览保持和线上行为一致。
 #
-#     bundle exec jekyll serve
+# 本地预览：
+#   bundle install
+#   bundle exec jekyll serve --livereload --drafts
 #
-# This will help ensure the proper Jekyll version is running.
-# Happy Jekylling!
-# gem "jekyll", "~> 4.2.0"
-# This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "minima", "~> 2.5"
-# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-# uncomment the line below. To upgrade, run `bundle update github-pages`.
+# 线上（GitHub Pages）用的是它锁定的一套 gem 版本（jekyll 3.10 / minima 2.5.1）。
+# 本地因此也按同一套版本约束，避免「本地能跑、线上构建失败」。
 gem "github-pages", group: :jekyll_plugins
 
-# If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.15"
-  gem "jekyll-remote-theme", "~> 0.4"
-  gem "jekyll-theme-primer", "~> 0.6"
+  gem "jekyll-feed"
 end
 
-# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
-# and associated library.
+# Windows / JRuby 上的时区数据
 platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo", "~> 1.2"
   gem "tzinfo-data"
 end
 
-# Performance-booster for watching directories on Windows
+# Windows 上的文件监听加速
 gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-gem "webrick", "~> 1.7"
+
+# Ruby 3+ 不再内置 webrick
+gem "webrick", "~> 1.8"

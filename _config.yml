@@ -1,60 +1,117 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick references for you: 
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-#
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
+# ============================================================
+# 站点主配置
+# 运行环境：GitHub Pages（Jekyll 3.10 / minima 2.5）
+# 本地预览：bundle exec jekyll serve --drafts
+# ============================================================
 
+# ---------- Site settings ----------
 title: 安身、立命、静心、养性
+author: Xu Ruizhi
 email: ruizhi_xu@163.com
-description: >- # this means to ignore newlines until "baseurl:"
-    A Father! A Test Engineer! A Programmer!
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://xuruizhi.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: xu_ruizhi
-github_username:  xuruizhi
+description: >-
+  一名测试工程师的 AI 工程笔记：AI 辅助研发、AI Agent 工程与 AI 质量保障。
 
-# Build settings
+# 站点定位（用于首页 hero 区，与上面的 SEO 描述分开维护）
+tagline: "一名测试工程师的 AI 工程笔记"
+intro: >-
+  AI 正在重写软件开发的角色分工 —— 写代码、做测试、做评审都在被重新定义。
+  这里记录我在这条迁移路径上的实践：AI 辅助研发、AI Agent 工程，以及如何给「不可靠的智能」做可靠的质量保障。
+
+url: "https://xuruizhi.github.io"
+baseurl: ""
+
+# ---------- 社交链接（minima 的页脚社交图标从这里读取）----------
+github_username: xuruizhi
+twitter_username: xu_ruizhi
+rss: rss
+
+# ---------- 主题与构建 ----------
+# GitHub Pages 的 safe 模式只加载白名单插件，theme 也建议用 Gemfile 里声明的 gem。
+# 如需迁移到 Netlify / Cloudflare Pages 等（可用 Jekyll 4 + 任意插件），
+# 见 README.md 中的「构建方式」一节。
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
-# remote_theme: pages-themes/modernist@v0.2.0
-# plugins:
-# - jekyll-feed
-# - jekyll-remote-theme # add this line to the plugins list if you already have one
+# kramdown 本身就用 GFM 解析器；`markdown: GFM` 这种写法仅在 Jekyll 4 的
+# commonmark 处理器下才有意义，Jekyll 3（GitHub Pages）会直接报错。
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
 
-markdown: GFM
+# ---------- minima 定制 ----------
+show_excerpts: true
+minima:
+  date_format: "%Y-%m-%d"
 
-# Exclude from processing.
-# The following items will not be processed, by default.
-# Any item listed under the `exclude:` key here will be automatically added to
-# the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
-#
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# 顶部导航：顺序即展示顺序
+header_pages:
+  - categories.md
+  - tags.md
+  - archive.md
+  - search.md
+  - about.md
+
+# ------------------------------------------------------------
+# 栏目（Categories）
+# 这是全站唯一的内容目录，首页、分类页、文章页都读这里。
+# slug 对应每篇文章 front matter 里的 categories 值。
+# 新增栏目：复制一项改 slug / name / description / keywords 即可。
+# ------------------------------------------------------------
+categories_index:
+  - slug: ai-assisted-dev
+    name: AI 辅助研发
+    description: >-
+      Copilot 式的代码补全只是开始。这里聊 AI 在编码、重构、Code Review、单测生成里的真实边界：
+      哪些环节它确实提效，哪些环节它只是在给你制造「看起来很对的错觉」。
+    keywords: [Copilot, Code Review, 单元测试生成, 重构, 提示工程]
+
+  - slug: agent-engineering
+    name: Agent 工程
+    description: >-
+      把 LLM 从「对话框」做成「系统」：工具调用、MCP、RAG、多步编排、状态与记忆、
+      失败重试与成本控制 —— 工程视角的 Agent 落地笔记。
+    keywords: [Tool Calling, MCP, RAG, 工作流编排, 上下文工程]
+
+  - slug: ai-quality
+    name: AI 质量保障
+    description: >-
+      我的老本行 × 新对象：当被测对象变成概率性的模型和 Agent，测试策略、评测集、
+      金标准与回归怎么设计？这是本博客的主场。
+    keywords: [LLM 评测, Eval, 测试用例, 回归测试, 幻觉治理]
+
+  - slug: engineering
+    name: 工程底子
+    description: >-
+      AI 再好也要落在工程上：JVM 与并发、密码学与安全、Git 与协作流程。
+      写给「不想只会调 API」的自己。
+    keywords: [Java, 密码学, Git, 安全]
+
+  - slug: notes
+    name: 杂记
+    description: >-
+      读书笔记、工作方法、踩坑记录 —— 不成体系但在沉淀的部分。
+    keywords: [读书笔记, 工作方法, 踩坑]
+
+# ------------------------------------------------------------
+# 技术标签（Tags）
+# 文章 front matter 里 tags 写到的每个标签都会自动生成标签页。
+# 这里只是给常用标签一个「规范写法」，避免出现 Java / java 两种拼法。
+# ------------------------------------------------------------
+common_tags:
+  - AI
+  - LLM
+  - Agent
+  - MCP
+  - RAG
+  - Prompt
+  - Copilot
+  - Evaluation
+  - Testing
+  - Java
+  - Spring Boot
+  - GitHub Actions
+  - Security
+  - Git

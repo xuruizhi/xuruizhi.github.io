@@ -2,7 +2,9 @@
 layout: post
 title:  "Step by step: 参与开源项目开发"
 date:   2021-04-16 15:00:00 +0800
-categories: skill
+categories: engineering
+tags: [Git, Open Source]
+description: "从 Fork、upstream 同步到提交 PR 与清理分支的完整流程，以参与 NullAway 项目为例。"
 ---
 
 本文档以在 GitHub 上参与 [NullAway项目](https://github.com/uber/NullAway) 为例，介绍如何参与开源项目开发。其余代码托管网站的操作都类似。

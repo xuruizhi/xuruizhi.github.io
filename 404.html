@@ -3,23 +3,12 @@ permalink: /404.html
 layout: default
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
+<div class="error-page">
   <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+  <p class="error-lead">这个页面不存在，或者已经被我删掉了。</p>
+  <p class="error-actions">
+    <a href="{{ '/' | relative_url }}">返回首页</a>
+    <a href="{{ '/archive/' | relative_url }}">看全部文章</a>
+    <a href="{{ '/search/' | relative_url }}">搜索</a>
+  </p>
 </div>
