@@ -3,18 +3,11 @@ layout: null
 permalink: /search.json
 ---
 [
-  {%- assign date_format = site.minima.date_format | default: "%Y-%m-%d" -%}
   {%- for post in site.posts -%}
   {
     "title": {{ post.title | jsonify }},
     "url": {{ post.url | relative_url | jsonify }},
-    "date": {{ post.date | date: date_format | jsonify }},
-    "categories": [
-      {%- for slug in post.categories -%}
-        {%- assign cat = site.categories_index | where: "slug", slug | first -%}
-        {{ cat.name | default: slug | jsonify }}{% unless forloop.last %},{% endunless %}
-      {%- endfor -%}
-    ],
+    "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
     "tags": {{ post.tags | jsonify }},
     "excerpt": {{ post.excerpt | strip_html | strip_newlines | jsonify }},
     "content": {{ post.content | strip_html | strip_newlines | truncatewords: 300 | jsonify }}

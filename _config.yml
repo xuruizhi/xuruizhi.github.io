@@ -1,117 +1,129 @@
 # ============================================================
-# 站点主配置
-# 运行环境：GitHub Pages（Jekyll 3.10 / minima 2.5）
-# 本地预览：bundle exec jekyll serve --drafts
+# 站点主配置 · beautiful-jekyll 6.0.1
+# 构建：GitHub Actions（见 .github/workflows/pages.yml）
+# 本地预览：bundle exec jekyll serve
 # ============================================================
 
-# ---------- Site settings ----------
+############################
+# --- 基本信息 ---
+############################
 title: 安身、立命、静心、养性
 author: Xu Ruizhi
-email: ruizhi_xu@163.com
 description: >-
   一名测试工程师的 AI 工程笔记：AI 辅助研发、AI Agent 工程与 AI 质量保障。
 
-# 站点定位（用于首页 hero 区，与上面的 SEO 描述分开维护）
-tagline: "一名测试工程师的 AI 工程笔记"
-intro: >-
-  AI 正在重写软件开发的角色分工 —— 写代码、做测试、做评审都在被重新定义。
-  这里记录我在这条迁移路径上的实践：AI 辅助研发、AI Agent 工程，以及如何给「不可靠的智能」做可靠的质量保障。
+# 站点定位（首页副标题）
+tagline: 一名测试工程师的 AI 工程笔记
 
 url: "https://xuruizhi.github.io"
 baseurl: ""
+url-pretty: "xuruizhi.github.io"
 
-# ---------- 社交链接（minima 的页脚社交图标从这里读取）----------
-github_username: xuruizhi
-twitter_username: xu_ruizhi
-rss: rss
+timezone: "Asia/Shanghai"
 
-# ---------- 主题与构建 ----------
-# GitHub Pages 的 safe 模式只加载白名单插件，theme 也建议用 Gemfile 里声明的 gem。
-# 如需迁移到 Netlify / Cloudflare Pages 等（可用 Jekyll 4 + 任意插件），
-# 见 README.md 中的「构建方式」一节。
-theme: minima
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+############################
+# --- 首页 ---
+############################
+title-on-all-pages: false
+excerpt_length: 60
+paginate: 10
 
-# kramdown 本身就用 GFM 解析器；`markdown: GFM` 这种写法仅在 Jekyll 4 的
-# commonmark 处理器下才有意义，Jekyll 3（GitHub Pages）会直接报错。
+############################
+# --- 导航 ---
+############################
+navbar-links:
+  首页: ""
+  分类: "categories"
+  搜索: "search"
+  标签: "tags"
+  关于: "about"
+# 第二个标签名用自定义页面时，可在该页面 front matter 里写 title
+
+############################
+# --- 头像 ---
+############################
+avatar: "/assets/img/avatar-icon.png"
+round-avatar: true
+
+############################
+# --- 社交 ---
+############################
+social-network-links:
+  email: "ruizhi_xu@163.com"
+  github: xuruizhi
+  twitter: xu_ruizhi
+  rss: true
+
+share-links-active:
+  twitter: true
+  facebook: false
+  linkedin: false
+  vk: false
+  reddit: false
+  stumbleupon: false
+  pinterest: false
+  pocket: false
+  flipboard: false
+  weibo: false
+
+############################
+# --- 配色（极简黑白）---
+############################
+navbar-col: "#FFFFFF"
+navbar-text-col: "#111111"
+navbar-border-col: "#E5E5E5"
+page-col: "#FFFFFF"
+text-col: "#1A1A1A"
+link-col: "#111111"
+hover-col: "#666666"
+footer-col: "#FAFAFA"
+footer-text-col: "#666666"
+footer-link-col: "#111111"
+footer-border-col: "#E5E5E5"
+
+############################
+# --- 构建 ---
+############################
 markdown: kramdown
 kramdown:
   input: GFM
   hard_wrap: false
 
-# ---------- minima 定制 ----------
-show_excerpts: true
-minima:
-  date_format: "%Y-%m-%d"
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - theme-compare-3.png
+  - vendor
 
-# 顶部导航：顺序即展示顺序
-header_pages:
-  - categories.md
-  - tags.md
-  - archive.md
-  - search.md
-  - about.md
+# 自定义样式（叠加在主题之上）
+site-css:
+  - "/assets/css/main-custom.css"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
 
 # ------------------------------------------------------------
-# 栏目（Categories）
-# 这是全站唯一的内容目录，首页、分类页、文章页都读这里。
-# slug 对应每篇文章 front matter 里的 categories 值。
-# 新增栏目：复制一项改 slug / name / description / keywords 即可。
+# 栏目（分类）：全站唯一的内容目录
+# slug 对应文章 front matter 里的 categories 值
 # ------------------------------------------------------------
 categories_index:
   - slug: ai-assisted-dev
     name: AI 辅助研发
-    description: >-
-      Copilot 式的代码补全只是开始。这里聊 AI 在编码、重构、Code Review、单测生成里的真实边界：
-      哪些环节它确实提效，哪些环节它只是在给你制造「看起来很对的错觉」。
-    keywords: [Copilot, Code Review, 单元测试生成, 重构, 提示工程]
-
+    description: "Copilot 式补全只是开始。AI 在编码、重构、Code Review、单测生成里的真实边界。"
   - slug: agent-engineering
     name: Agent 工程
-    description: >-
-      把 LLM 从「对话框」做成「系统」：工具调用、MCP、RAG、多步编排、状态与记忆、
-      失败重试与成本控制 —— 工程视角的 Agent 落地笔记。
-    keywords: [Tool Calling, MCP, RAG, 工作流编排, 上下文工程]
-
+    description: "工具调用、MCP、RAG、多步编排、上下文管理 —— 工程视角的 Agent 落地笔记。"
   - slug: ai-quality
     name: AI 质量保障
-    description: >-
-      我的老本行 × 新对象：当被测对象变成概率性的模型和 Agent，测试策略、评测集、
-      金标准与回归怎么设计？这是本博客的主场。
-    keywords: [LLM 评测, Eval, 测试用例, 回归测试, 幻觉治理]
-
+    description: "被测对象变成概率性系统之后，测试策略、评测集与回归怎么设计。"
   - slug: engineering
     name: 工程底子
-    description: >-
-      AI 再好也要落在工程上：JVM 与并发、密码学与安全、Git 与协作流程。
-      写给「不想只会调 API」的自己。
-    keywords: [Java, 密码学, Git, 安全]
-
+    description: "JVM 与并发、密码学与安全、Git 与协作流程 —— 不想只会调 API。"
   - slug: notes
     name: 杂记
-    description: >-
-      读书笔记、工作方法、踩坑记录 —— 不成体系但在沉淀的部分。
-    keywords: [读书笔记, 工作方法, 踩坑]
-
-# ------------------------------------------------------------
-# 技术标签（Tags）
-# 文章 front matter 里 tags 写到的每个标签都会自动生成标签页。
-# 这里只是给常用标签一个「规范写法」，避免出现 Java / java 两种拼法。
-# ------------------------------------------------------------
-common_tags:
-  - AI
-  - LLM
-  - Agent
-  - MCP
-  - RAG
-  - Prompt
-  - Copilot
-  - Evaluation
-  - Testing
-  - Java
-  - Spring Boot
-  - GitHub Actions
-  - Security
-  - Git
+    description: "读书笔记、工作方法、踩坑记录 —— 不成体系但在沉淀的部分。"

@@ -1,32 +1,36 @@
 # 安身、立命、静心、养性
 
-一名测试工程师的 AI 工程笔记 —— AI 辅助研发、AI Agent 工程与 AI 质量保障。
+一名测试工程师的 AI 工程笔记。
 
 线上地址：<https://xuruizhi.github.io>
+
+## 技术栈
+
+- **主题**：[beautiful-jekyll](https://github.com/daattali/beautiful-jekyll) 6.0.1（MIT）
+- **构建**：GitHub Actions + Jekyll 4（`.github/workflows/pages.yml`）
+- **风格**：在主题之上叠加黑白极简样式（`assets/css/main-custom.scss`）
 
 ## 目录结构
 
 ```
 .
-├── _config.yml              # 站点配置：标题、定位、导航、栏目 / 标签定义
-├── _includes/
-│   ├── head.html            # <head> 覆写（主题色等）
-│   ├── header.html          # 顶部导航覆写（当前页高亮）
-│   ├── post-meta.html       # 文章的分类 / 标签 chip
-│   └── ...                  # 其余沿用 minima 默认
-├── _layouts/
-│   ├── home.html            # 首页：hero + 栏目入口 + 最新文章
-│   ├── post.html            # 文章页：元信息 + 上一篇/下一篇 + 可选评论
-│   └── page.html            # 普通页面
-├── _posts/                  # 文章（文件名格式 YYYY-MM-DD-title.md）
-├── assets/main.scss         # 站点样式（覆写 minima 变量 + 自定义外观）
-├── categories.md            # /categories/ 分类页
-├── tags.md                  # /tags/ 标签页
-├── archive.md               # /archive/ 归档页
-├── search.md                # /search/ 前端搜索页
-├── search.json              # 搜索索引（由文章自动生成，勿手改）
-├── about.md                 # /about/
-└── index.markdown           # 首页正文
+├── _config.yml                # 站点配置：导航、社交、配色、栏目
+├── _data/ui-text.yml          # 主题文案（可选）
+├── _includes/                 # 主题组件（导航、页脚、评论等）
+├── _layouts/                  # 主题布局（home / post / page / base）
+├── _posts/                    # 文章
+├── assets/
+│   ├── css/beautifuljekyll.css      # 主题样式（勿改）
+│   ├── css/main-custom.scss         # 自定义黑白极简样式（改这里）
+│   └── img/avatar-icon.png          # 头像（替换成你自己的）
+├── images/                    # 文章配图
+├── index.markdown             # 首页
+├── categories.md              # /categories/ 分类页
+├── tags.html                  # /tags/ 标签页
+├── search.md                  # /search/ 搜索页
+├── search.json                # 搜索索引（自动生成，勿手改）
+├── about.md                   # /about/
+└── .github/workflows/pages.yml # 自动部署
 ```
 
 ## 写一篇新文章
@@ -37,16 +41,16 @@
 ---
 layout: post
 title: "文章标题"
+subtitle: "一句话副标题（可选，显示在标题下方）"
 date: 2026-10-20 10:00:00 +0800
-categories: ai-quality          # 必填一项，取值见 _config.yml 的 categories_index
-tags: [LLM, Evaluation]         # 可选，自由填写
-description: "一句话摘要，会用于首页摘要和搜索结果。"
+categories: ai-quality        # 取值见 _config.yml 的 categories_index
+tags: [LLM, Evaluation]
 ---
 
 正文……
 ```
 
-**栏目 slug**（`categories: <slug>`）：
+**栏目 slug**：
 
 | slug | 栏目 |
 | --- | --- |
@@ -56,35 +60,28 @@ description: "一句话摘要，会用于首页摘要和搜索结果。"
 | `engineering` | 工程底子 |
 | `notes` | 杂记 |
 
-> 新增栏目只需在 `_config.yml` 的 `categories_index` 里加一项，首页、分类页会自动出现。
+新增栏目：在 `_config.yml` 的 `categories_index` 里加一项即可。
 
 ## 本地预览
 
-需要 Ruby 3.x + Bundler。
+需要 Ruby 3.x + Bundler：
 
 ```bash
 bundle install
-bundle exec jekyll serve --livereload --drafts
+bundle exec jekyll serve --livereload
 # 打开 http://127.0.0.1:4000
 ```
 
 ## 发布
 
-推送到 `main` 分支即可，GitHub Pages 自动构建（Settings → Pages → Source: `Deploy from a branch` / `main` / `root`）。
+推送到 `main` 分支后，GitHub Actions 会自动构建并部署。
 
-## 可选的增强
+> **首次使用**：需要在仓库 Settings → Pages 里把 **Source** 改为 **GitHub Actions**（而不是 Deploy from a branch）。
 
-- **评论**：在 `_config.yml` 加下面一段，文章页底部会自动出现评论区（基于 GitHub Issues，无需后端）：
+## 常用自定义
 
-  ```yaml
-  comments:
-    provider: utterances
-    utterances:
-      repo: xuruizhi/xuruizhi.github.io
-      issue_term: pathname
-      theme: github-light
-  ```
-
-  需要在 GitHub 上安装 [utterances app](https://github.com/apps/utterances)。
-
-- **分类/标签与搜索**：已内置，无需额外插件（GitHub Pages 的 safe 模式不支持自定义插件，所以这里全部用 Liquid + 原生 JS 实现）。
+- **改配色 / 间距**：编辑 `assets/css/main-custom.scss`
+- **改导航**：`_config.yml` 的 `navbar-links`
+- **改社交链接**：`_config.yml` 的 `social-network-links`
+- **换头像**：替换 `assets/img/avatar-icon.png`
+- **加评论**：主题内置 utterances / giscus / disqus，在 `_config.yml` 里配置即可

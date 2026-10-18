@@ -1,14 +1,13 @@
 ---
-permalink: /404.html
 layout: default
+title: 404 - Page not found
+permalink: /404.html
 ---
 
-<div class="error-page">
-  <h1>404</h1>
-  <p class="error-lead">这个页面不存在，或者已经被我删掉了。</p>
-  <p class="error-actions">
-    <a href="{{ '/' | relative_url }}">返回首页</a>
-    <a href="{{ '/archive/' | relative_url }}">看全部文章</a>
-    <a href="{{ '/search/' | relative_url }}">搜索</a>
-  </p>
+<div class="text-center">
+  <h1>Whoops, this page doesn't exist.</h1>
+  <h1>Move along. (404 error)</h1>
+  <br/>
+
+  <img src="{{ 'assets/img/404-southpark.jpg' | relative_url }}" alt="Not found" />
 </div>

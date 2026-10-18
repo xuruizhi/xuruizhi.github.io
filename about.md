@@ -1,8 +1,8 @@
 ---
 layout: page
 title: 关于
+subtitle: 测试工程师，最近在做 AI 辅助研发与 AI Agent 的质量保障
 permalink: /about/
-description: 测试工程师，最近在做 AI 辅助研发与 AI Agent 的质量保障。
 ---
 
 ## 我是谁
@@ -10,21 +10,19 @@ description: 测试工程师，最近在做 AI 辅助研发与 AI Agent 的质�
 一名测试工程师，同时是两个孩子的父亲、业余的编码爱好者。
 
 我的日常工作围绕**质量**展开：怎么定义「对」，怎么证明「对」，怎么让「对」可重复、可度量。
-过去几年我做的是测试框架、自动化流水线、代码覆盖率这类「看得见、算得清」的东西；
+过去几年做的是测试框架、自动化流水线、代码覆盖率这类看得见、算得清的东西；
 现在这个对象变成了大模型和 AI Agent —— 它的输出是概率性的、不可完全复现的，
 原来的那套测试方法论需要被重新发明一遍。
 
 ## 这里写什么
 
-这个博客聚焦一条主线：**AI 辅助研发与 AI Agent 工程**，具体分三个栏目。
+聚焦一条主线：**AI 辅助研发与 AI Agent 工程**。
 
-| 栏目 | 内容 |
-| --- | --- |
-| AI 辅助研发 | Copilot 式补全、AI 重构、AI 做 Code Review、单测生成的边界与陷阱 |
-| Agent 工程 | 工具调用、MCP、RAG、多步编排、上下文工程、成本与失败处理 |
-| AI 质量保障 | LLM 评测集（Eval）、AI 生成代码的验证、Agent 的回归与观测 |
+- **AI 辅助研发** —— Copilot 式补全、AI 重构、AI 做 Code Review、单测生成的边界与陷阱
+- **Agent 工程** —— 工具调用、MCP、RAG、多步编排、上下文工程、成本与失败处理
+- **AI 质量保障** —— LLM 评测集（Eval）、AI 生成代码的验证、Agent 的回归与观测
 
-另有两个辅助栏目：**工程底子**（Java、密码学、Git 等基本功）和 **杂记**（读书、方法、踩坑）。
+另有 **工程底子**（Java、密码学、Git 等基本功）和 **杂记**（读书、方法、踩坑）。
 
 ## 怎么写
 
@@ -37,6 +35,3 @@ description: 测试工程师，最近在做 AI 辅助研发与 AI Agent 的质�
 - GitHub：[@xuruizhi](https://github.com/xuruizhi)
 - X / Twitter：[@xu_ruizhi](https://twitter.com/xu_ruizhi)
 - 邮箱：<ruizhi_xu@163.com>
-- 订阅：[RSS]({{ "/feed.xml" | relative_url }})
-
-欢迎就文章内容直接开 Issue 或在评论区交流。

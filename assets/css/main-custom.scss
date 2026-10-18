@@ -1,0 +1,429 @@
+---
+---
+
+// ============================================================
+// 站点自定义样式 · 黑白极简阅读风
+// 叠加在 beautiful-jekyll 之上，只做「减色 / 收窄 / 留白」
+// ============================================================
+
+:root {
+  --ink: #111111;
+  --paper: #ffffff;
+  --muted: #777777;
+  --rule: #e5e5e5;
+  --soft: #fafafa;
+}
+
+body {
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+
+  &:hover,
+  &:focus {
+    color: #555;
+    text-decoration: none;
+    border-bottom-color: var(--ink);
+  }
+}
+
+// ---------- 顶栏：细、白、直线 ----------
+.navbar-custom {
+  background: #fff !important;
+  border-bottom: 1px solid var(--rule) !important;
+  box-shadow: none !important;
+  padding-top: .85rem;
+  padding-bottom: .85rem;
+
+  .navbar-brand {
+    font-weight: 500;
+    letter-spacing: .01em;
+    color: var(--ink) !important;
+  }
+
+  .nav-link {
+    color: var(--muted) !important;
+    font-size: .92rem;
+    letter-spacing: .02em;
+
+    &:hover,
+    &.active {
+      color: var(--ink) !important;
+    }
+  }
+}
+
+// ---------- 页面头部 ----------
+.intro-header {
+  padding-top: 2.6rem;
+  padding-bottom: 2.6rem;
+  background: #fff !important;
+  border-bottom: 1px solid var(--rule);
+
+  .page-heading,
+  h1 {
+    font-weight: 600;
+    letter-spacing: -.02em;
+    color: var(--ink) !important;
+    text-shadow: none !important;
+  }
+
+  .page-subheading,
+  .subheading {
+    font-weight: 400;
+    color: var(--muted) !important;
+    font-size: 1rem !important;
+    margin-top: .6rem;
+    text-shadow: none !important;
+  }
+}
+
+// 有大图封面时压成黑白并降低存在感
+.intro-header.big-img {
+  .header-bg {
+    filter: grayscale(100%) contrast(1.05);
+    opacity: .18;
+  }
+
+  .page-heading {
+    color: var(--ink) !important;
+  }
+}
+
+// ---------- 文章列表 ----------
+.posts-list .post-preview {
+  border-bottom: 1px solid var(--rule);
+  padding: 1.9rem 0;
+  margin-bottom: 0;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  .post-title {
+    font-size: 1.45rem;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    color: var(--ink);
+    margin-bottom: .35rem;
+  }
+
+  .post-subtitle {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #555;
+  }
+
+  .post-meta {
+    color: var(--muted);
+    font-size: .82rem;
+    letter-spacing: .02em;
+  }
+
+  .post-entry {
+    color: #333;
+    line-height: 1.85;
+    margin-top: .7rem;
+  }
+
+  .post-read-more {
+    color: var(--ink);
+    font-weight: 500;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .blog-tags a {
+    color: var(--muted);
+    font-size: .8rem;
+    border-bottom: 1px dashed var(--rule);
+
+    &:hover {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+  }
+}
+
+// ---------- 正文 ----------
+.post-content {
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: #1a1a1a;
+
+  h1, h2, h3, h4 {
+    color: var(--ink);
+    font-weight: 600;
+    letter-spacing: -.01em;
+  }
+
+  h2 {
+    margin-top: 2.8rem;
+    padding-bottom: .4rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  img {
+    border-radius: 0;
+    border: 1px solid var(--rule);
+  }
+
+  blockquote {
+    border-left: 2px solid var(--ink);
+    background: var(--soft);
+    padding: .9rem 1.1rem;
+    color: #444;
+    font-size: .98rem;
+    font-style: normal;
+  }
+
+  table {
+    font-size: .92rem;
+    border-color: var(--rule);
+  }
+}
+
+// 代码块：主题用 .highlight > pre 包裹，这里统一改成深底亮字
+.highlight,
+.language-bash .highlight,
+.language-java .highlight,
+.language-javascript .highlight,
+.language-python .highlight,
+.language-html .highlight {
+  background: #0e0e0e !important;
+  border-radius: 0 !important;
+  margin-bottom: 1.6rem;
+
+  pre,
+  pre.highlight,
+  code {
+    background: #0e0e0e !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: #ededed !important;
+    margin-bottom: 0;
+  }
+}
+
+.highlight .highlight {
+  background: transparent !important;
+}
+
+// 深色底上的语法高亮配色（极简黑白灰）
+.highlight {
+  .c, .c1, .cm, .cd { color: #7d7d7d !important; }   // 注释
+  .k, .kd, .kn, .kr, .kc, .kt { color: #ffffff !important; font-weight: 600; } // 关键字
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx { color: #c9c9c9 !important; } // 字符串
+  .n, .nf, .nb, .nl, .nn, .nx { color: #ededed !important; }  // 名称
+  .nt, .na { color: #e0e0e0 !important; }              // 标签/属性
+  .m, .mi, .mf, .mh, .mo { color: #d0d0d0 !important; } // 数字
+  .o, .ow, .p { color: #bdbdbd !important; }            // 运算符/标点
+  .gh, .gu { color: #9a9a9a !important; }               // shell 提示
+  .gp { color: #7d7d7d !important; }
+}
+
+// 行内代码
+.post-content code {
+  background: #f4f4f4 !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  color: #111 !important;
+  padding: .1rem .35rem;
+}
+
+// ---------- 分类页 ----------
+.categories-page {
+  margin-top: .5rem;
+}
+
+.category-block {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 6rem;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  // 空栏目紧凑呈现，避免大片留白
+  .empty-hint {
+    margin: 0;
+    padding: .2rem 0 0;
+    font-size: .86rem;
+    color: #aaa;
+  }
+
+  .posts-list {
+    margin: 0;
+  }
+
+  .posts-list .post-preview {
+    padding: .45rem 0;
+    border-bottom: 0;
+
+    .post-title {
+      font-size: 1.02rem;
+      font-weight: 500;
+      margin-bottom: .1rem;
+    }
+
+    .post-meta {
+      font-size: .78rem;
+    }
+  }
+}
+
+// 头像缩小并去掉阴影，减少装饰感
+.avatar-container .avatar-img {
+  width: 68px;
+  height: 68px;
+  border: 1px solid var(--rule) !important;
+  box-shadow: none !important;
+}
+
+// 导航里的汉堡按钮：方角、细线
+.navbar-toggler {
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+}
+
+.category-block-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  margin-bottom: .3rem;
+
+  .category-block-count {
+    font-size: .78rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-left: .5rem;
+  }
+}
+
+.category-block-desc {
+  color: #555;
+  font-size: .93rem;
+  line-height: 1.85;
+  margin-bottom: .4rem;
+}
+
+.empty-hint {
+  color: var(--muted);
+  font-size: .9rem;
+  padding: .6rem 0;
+}
+
+// ---------- 搜索页 ----------
+.search-input {
+  width: 100%;
+  padding: .75rem .95rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  outline: none;
+  margin-top: .5rem;
+  transition: border-color .15s ease;
+
+  &:focus {
+    border-color: var(--ink);
+  }
+}
+
+.search-status {
+  color: var(--muted);
+  font-size: .82rem;
+  margin: .7rem 0 0;
+}
+
+.search-item {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--rule);
+
+  .post-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: .3rem;
+  }
+
+  .search-snippet {
+    color: #444;
+    font-size: .93rem;
+    line-height: 1.8;
+    margin-bottom: .35rem;
+  }
+
+  .tag-chip {
+    color: var(--muted);
+    font-size: .78rem;
+    margin-right: .6rem;
+  }
+
+  mark {
+    background: #f0f0f0;
+    color: inherit;
+    padding: 0 .1em;
+  }
+}
+
+// ---------- 标签页 ----------
+.tag-btn,
+.btn-primary {
+  background: #fff !important;
+  border: 1px solid var(--rule) !important;
+  color: var(--ink) !important;
+  border-radius: 0 !important;
+  font-size: .82rem;
+  padding: .25rem .7rem;
+
+  &:hover {
+    border-color: var(--ink) !important;
+    background: var(--soft) !important;
+  }
+}
+
+.linked-section {
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .4rem;
+  margin-top: 2rem;
+}
+
+.tag-entry {
+  padding: .45rem 0;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+// ---------- 页脚 ----------
+footer {
+  background: var(--soft) !important;
+  border-top: 1px solid var(--rule);
+  color: var(--muted) !important;
+
+  a {
+    color: #444 !important;
+
+    &:hover {
+      color: var(--ink) !important;
+    }
+  }
+}
+
+// ---------- 分页 ----------
+.pagination .page-link {
+  border-radius: 0 !important;
+  border: 1px solid var(--rule) !important;
+  color: var(--ink) !important;
+  background: #fff !important;
+
+  &:hover {
+    background: var(--soft) !important;
+    border-color: var(--ink) !important;
+  }
+}
