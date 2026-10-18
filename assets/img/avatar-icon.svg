@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <g fill="#111111">
+    <!-- 大人 -->
+    <circle cx="196" cy="150" r="52"/>
+    <path d="M196 214 c-58 0 -88 40 -92 96 l-6 146 h196 l-6 -146 c-4 -56 -34 -96 -92 -96 z"/>
+    <!-- 小孩 -->
+    <circle cx="352" cy="286" r="38"/>
+    <path d="M352 334 c-44 0 -66 30 -70 72 l-4 62 h148 l-4 -62 c-4 -42 -26 -72 -70 -72 z"/>
+  </g>
+  <!-- 分隔细线：大人的手牵着小孩 -->
+  <line x1="228" y1="300" x2="322" y2="336" stroke="#ffffff" stroke-width="0"/>
+</svg>

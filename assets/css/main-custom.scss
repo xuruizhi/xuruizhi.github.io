@@ -56,12 +56,56 @@ main > .row > [class*="col-"] {
   letter-spacing: -.03em;
 }
 
-// 窄屏下允许折行，避免溢出
-@media (max-width: 576px) {
+// 窄屏下允许折行并缩小字号，避免标题溢出被截断
+@media (max-width: 768px) {
   .intro-header .page-heading,
   .intro-header h1 {
-    white-space: normal;
+    white-space: normal !important;
+    font-size: 2.1rem !important;
+    line-height: 1.25;
+    letter-spacing: -.02em;
+    overflow-wrap: anywhere;
   }
+}
+
+@media (max-width: 420px) {
+  .intro-header .page-heading,
+  .intro-header h1 {
+    font-size: 1.75rem !important;
+  }
+}
+
+// ------------------------------------------------------------
+// 溢出治理：正文里的长 URL、长代码会撑破窄屏
+// 允许在任意位置断行，代码块改为内部横向滚动
+// ------------------------------------------------------------
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.post-content,
+.post-entry,
+.page-content {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.post-content pre,
+.post-content .highlight {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.post-content a {
+  overflow-wrap: anywhere;
+}
+
+.post-content img,
+.post-content table {
+  max-width: 100%;
+  height: auto;
 }
 
 body {
@@ -327,12 +371,28 @@ a {
   }
 }
 
-// 头像缩小并去掉阴影，减少装饰感
+// 头像：只调容器尺寸，让子元素按 100% 撑满，保持正圆
+// （主题的 .avatar-img 是 width:100%，直接给它写死宽高会和容器冲突，导致变成椭圆）
+.avatar-container {
+  width: 64px;
+  bottom: -1.5rem;
+}
+
+.avatar-container .avatar-img-border {
+  width: 100% !important;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--rule) !important;
+  overflow: hidden;
+}
+
 .avatar-container .avatar-img {
-  width: 68px;
-  height: 68px;
-  border: 1px solid var(--rule) !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  border: 0 !important;
+  border-radius: 50% !important;
   box-shadow: none !important;
+  display: block;
 }
 
 // 导航里的汉堡按钮：方角、细线
