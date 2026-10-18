@@ -2,9 +2,14 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-vendor
+# 只忽略根目录的 bundler 目录；assets/vendor 是自托管的第三方资源，需要入库
+/vendor
 .bundle
 Gemfile.lock
 
 sample.md
 _tmp
+
+# 本地草稿（头像候选等），确定后再入库
+_avatars/
+avatars-preview.png

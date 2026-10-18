@@ -9,6 +9,23 @@
 - **主题**：[beautiful-jekyll](https://github.com/daattali/beautiful-jekyll) 6.0.1（MIT）
 - **构建**：GitHub Actions + Jekyll 4（`.github/workflows/pages.yml`）
 - **风格**：在主题之上叠加黑白极简样式（`assets/css/main-custom.scss`）
+- **依赖**：全部本地自托管，**不请求任何外部 CDN**
+
+### 关于自托管依赖
+
+`assets/vendor/` 下是本地化的第三方资源，站点运行时不向任何外部域名发请求：
+
+| 路径 | 内容 |
+| --- | --- |
+| `vendor/bootstrap/` | Bootstrap 4.4.1（CSS + JS） |
+| `vendor/jquery/` | jQuery 3.5.1 slim |
+| `vendor/popper/` | Popper.js 1.16.0 |
+| `vendor/fontawesome/` | Font Awesome 6.5.2（CSS + webfonts） |
+| `vendor/fonts/` | Lora + Open Sans（自托管 woff2，仅 latin 子集）+ `fonts.css` |
+
+> 这样做是因为原主题从 `stackpath.bootstrapcdn.com`、`fonts.googleapis.com` 等加载资源，
+> 这些域名在中国大陆经常无法访问或很慢，会导致字体回退、图标丢失。
+> 升级依赖时把新文件放进对应目录，再改 `_layouts/base.html` 里的 `common-css` / `common-js` 即可。
 
 ## 目录结构
 
