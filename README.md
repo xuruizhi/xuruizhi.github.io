@@ -1,6 +1,6 @@
 # 安身、立命、静心、养性
 
-一名全职爸爸的 AI 工程笔记：AI 辅助教学。
+一名全职爸爸的 AI 工程笔记，主要写 **AI 辅助教学**。
 
 线上地址：<https://xuruizhi.github.io>
 
@@ -43,8 +43,8 @@ layout: post
 title: "文章标题"
 subtitle: "一句话副标题（可选，显示在标题下方）"
 date: 2026-10-20 10:00:00 +0800
-categories: ai-quality        # 取值见 _config.yml 的 categories_index
-tags: [LLM, Evaluation]
+categories: ai-assisted-edu   # 取值见 _config.yml 的 categories_index
+tags: [AI, 教学]
 ---
 
 正文……
@@ -52,15 +52,16 @@ tags: [LLM, Evaluation]
 
 **栏目 slug**：
 
-| slug | 栏目 |
-| --- | --- |
-| `ai-assisted-dev` | AI 辅助研发 |
-| `agent-engineering` | Agent 工程 |
-| `ai-quality` | AI 质量保障 |
-| `engineering` | 工程底子 |
-| `notes` | 杂记 |
+| slug | 栏目 | 说明 |
+| --- | --- | --- |
+| `ai-assisted-edu` | AI 辅助教学 | 把 AI 用在教学与陪学上，以及它的边界 |
+| `engineering` | 工程底子 | Git 与协作流程等基本功 |
+| `notes` | 杂记 | 读书笔记、工作方法、踩坑记录 |
 
 新增栏目：在 `_config.yml` 的 `categories_index` 里加一项即可。
+
+> 栏目定义是**唯一来源**：`/categories/` 页面、文章归类都读它。
+> 改完栏目记得同步更新 `about.md` 的「这里写什么」和本 README 的表格。
 
 ## 本地预览
 

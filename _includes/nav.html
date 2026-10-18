@@ -26,7 +26,17 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{{ link[1] | relative_url }}">{{ link[0] }}</a>
+            {%- comment -%}
+              空值表示首页。relative_url 对空串会返回当前目录，
+              导致在 /categories/ 下点「首页」仍停在原地，这里显式回退到站点根路径。
+            {%- endcomment -%}
+            {%- assign nav_href = link[1] -%}
+            {%- if nav_href == "" or nav_href == nil -%}
+              {%- assign nav_href = "/" | relative_url -%}
+            {%- else -%}
+              {%- assign nav_href = nav_href | relative_url -%}
+            {%- endif -%}
+            <a class="nav-link" href="{{ nav_href }}">{{ link[0] }}</a>
           </li>
         {%- endif -%}
       {%- endfor -%}
