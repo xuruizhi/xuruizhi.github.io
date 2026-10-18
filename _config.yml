@@ -93,7 +93,6 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
-  - theme-compare-3.png
   - vendor
 
 # 自定义样式（叠加在主题之上）

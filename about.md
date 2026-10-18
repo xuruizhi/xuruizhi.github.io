@@ -33,5 +33,4 @@ permalink: /about/
 ## 联系我
 
 - GitHub：[@xuruizhi](https://github.com/xuruizhi)
-- X / Twitter：[@xu_ruizhi](https://twitter.com/xu_ruizhi)
 - 邮箱：<ruizhi_xu@163.com>

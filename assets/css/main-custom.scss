@@ -12,6 +12,56 @@
   --muted: #777777;
   --rule: #e5e5e5;
   --soft: #fafafa;
+
+  // 页面宽度：改这一个值就能整体加宽 / 收窄
+  --content-max-width: 1100px;
+}
+
+// ------------------------------------------------------------
+// 布局宽度
+// 主题原本是 container-md + Bootstrap 栅格 col-xl-8 / offset-xl-2，
+// 正文实际只有容器的 2/3。这里把容器放宽，并让栅格子项占满整行。
+// ------------------------------------------------------------
+// 正文两侧留白：直接给容器写死内边距，不依赖 Bootstrap 的 .row 负边距
+.container,
+.container-md,
+.container-lg,
+.container-xl {
+  max-width: var(--content-max-width) !important;
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+// 取消栅格的负外边距，避免正文在窄屏下贴到屏幕边缘
+main > .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+// 去掉左右偏移，让正文占满容器宽度
+main > .row > [class*="col-"] {
+  flex: 0 0 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// 首页大标题跟随容器撑满，保持一整行
+.intro-header .page-heading,
+.intro-header h1 {
+  max-width: 100% !important;
+  white-space: nowrap;
+  letter-spacing: -.03em;
+}
+
+// 窄屏下允许折行，避免溢出
+@media (max-width: 576px) {
+  .intro-header .page-heading,
+  .intro-header h1 {
+    white-space: normal;
+  }
 }
 
 body {
