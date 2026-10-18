@@ -412,28 +412,32 @@ a {
   }
 }
 
-// 头像：只调容器尺寸，让子元素按 100% 撑满，保持正圆
-// （主题的 .avatar-img 是 width:100%，直接给它写死宽高会和容器冲突，导致变成椭圆）
-.avatar-container {
-  width: 64px;
-  bottom: -1.5rem;
+// 导航栏左上角的小头像（放在站点标题左侧）
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
 }
 
-.avatar-container .avatar-img-border {
-  width: 100% !important;
+.navbar-avatar {
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  box-shadow: 0 0 0 1px var(--rule) !important;
-  overflow: hidden;
+  border: 1px solid var(--rule);
+  margin-right: 10px;
+  flex: 0 0 26px;
+  object-fit: cover;
+  display: block;
+  box-shadow: none;
+  // 不参与主题的过渡/淡入淡出
+  transition: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.avatar-container .avatar-img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 1 / 1;
-  border: 0 !important;
-  border-radius: 50% !important;
-  box-shadow: none !important;
-  display: block;
+// 主题的滚动淡出、移动端隐藏都是针对旧的居中头像容器，
+// 该容器已从模板移除，这里确保即使有残留也不会影响标题
+.avatar-container {
+  display: none !important;
 }
 
 // 导航里的汉堡按钮：方角、细线
