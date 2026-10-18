@@ -12,8 +12,8 @@ author: Xu Ruizhi
 description: >-
   一名全职爸爸的 AI 工程笔记：AI 辅助教学。
 
-# 站点定位（首页副标题）
-tagline: 一名全职爸爸的 AI 工程笔记
+# 说明：首页标题与副标题写在 index.markdown 的 front matter 里
+# （page.title / page.subtitle），本文件不要重复定义，否则两处会不一致。
 
 url: "https://xuruizhi.github.io"
 baseurl: ""
