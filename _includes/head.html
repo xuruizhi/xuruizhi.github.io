@@ -78,7 +78,11 @@
 
   {% if site.site-css %}
     {% for css in site.site-css %}
-      <link rel="stylesheet" href="{{ css | relative_url }}">
+      {%- comment -%}
+        带构建时间戳，避免部署后浏览器继续用缓存里的旧样式
+        （曾因旧 CSS 缺 .navbar-avatar 规则，头像按原图 512px 渲染而撑破页面）
+      {%- endcomment -%}
+      <link rel="stylesheet" href="{{ css | relative_url }}?v={{ site.time | date: '%s' }}">
     {% endfor %}
   {% endif %}
 

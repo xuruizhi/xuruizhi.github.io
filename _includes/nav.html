@@ -8,7 +8,12 @@
         头像放在站点标题左侧（原来是个居中悬浮、带淡入淡出的小头像）
       {%- endcomment -%}
       {%- if site.avatar and page.show-avatar != false -%}
-        <img class="navbar-avatar" src="{{ site.avatar | relative_url }}" alt="{{ site.title }} 头像" />
+        {%- comment -%}
+          width/height 必须写成属性：这样即使 CSS 未加载或浏览器缓存了旧样式，
+          头像也只按 26×26 渲染，不会按原图 512px 撑破页面。
+        {%- endcomment -%}
+        <img class="navbar-avatar" src="{{ site.avatar | relative_url }}"
+             width="26" height="26" alt="{{ site.title }} 头像" />
       {%- endif -%}
       <span class="navbar-title">{{ site.title }}</span>
     </a>

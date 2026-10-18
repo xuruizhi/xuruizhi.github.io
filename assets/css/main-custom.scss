@@ -420,7 +420,9 @@ a {
 
 .navbar-avatar {
   width: 26px;
+  max-width: 26px;
   height: 26px;
+  max-height: 26px;
   border-radius: 50%;
   border: 1px solid var(--rule);
   margin-right: 10px;
