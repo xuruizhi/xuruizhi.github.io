@@ -168,12 +168,29 @@ a {
 }
 
 // ---------- 顶栏：细、白、直线 ----------
+// 固定为窄尺寸：主题会在滚动时给导航加 .top-nav-short，
+// 把 padding 从 1.25rem 变成 0（视觉上就是「宽变窄」）。
+// 这里让三种状态取值一致，并且关掉相关过渡，滚动时高度完全不变。
+.navbar-custom,
+.navbar-custom.top-nav-regular,
+.navbar-custom.top-nav-short,
+.navbar-custom.top-nav-short-permanent {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.navbar-custom,
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-brand-logo,
+.navbar-custom .navbar-brand-logo img,
+.navbar-custom .navbar-nav .nav-link {
+  transition: none !important;
+}
+
 .navbar-custom {
   background: #fff !important;
   border-bottom: 1px solid var(--rule) !important;
   box-shadow: none !important;
-  padding-top: .85rem;
-  padding-bottom: .85rem;
 
   .navbar-brand {
     font-weight: 500;
