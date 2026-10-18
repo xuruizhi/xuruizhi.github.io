@@ -10,10 +10,10 @@
 title: 安身、立命、静心、养性
 author: Xu Ruizhi
 description: >-
-  一名测试工程师的 AI 工程笔记：AI 辅助研发、AI Agent 工程与 AI 质量保障。
+  一名全职爸爸的 AI 工程笔记：AI 辅助教学。
 
 # 站点定位（首页副标题）
-tagline: 一名测试工程师的 AI 工程笔记
+tagline: 一名全职爸爸的 AI 工程笔记
 
 url: "https://xuruizhi.github.io"
 baseurl: ""
@@ -25,7 +25,7 @@ timezone: "Asia/Shanghai"
 # --- 首页 ---
 ############################
 title-on-all-pages: false
-excerpt_length: 60
+excerpt_length: 80
 paginate: 10
 
 ############################
@@ -51,11 +51,10 @@ round-avatar: true
 social-network-links:
   email: "ruizhi_xu@163.com"
   github: xuruizhi
-  twitter: xu_ruizhi
   rss: true
 
 share-links-active:
-  twitter: true
+  twitter: false
   facebook: false
   linkedin: false
   vk: false
@@ -112,18 +111,12 @@ plugins:
 # slug 对应文章 front matter 里的 categories 值
 # ------------------------------------------------------------
 categories_index:
-  - slug: ai-assisted-dev
-    name: AI 辅助研发
-    description: "Copilot 式补全只是开始。AI 在编码、重构、Code Review、单测生成里的真实边界。"
-  - slug: agent-engineering
-    name: Agent 工程
-    description: "工具调用、MCP、RAG、多步编排、上下文管理 —— 工程视角的 Agent 落地笔记。"
-  - slug: ai-quality
-    name: AI 质量保障
-    description: "被测对象变成概率性系统之后，测试策略、评测集与回归怎么设计。"
+  - slug: ai-assisted-edu
+    name: AI 辅助教学
+    description: "Copilot 式补全只是开始，探索 AI 在教学里的真实应用。"
   - slug: engineering
     name: 工程底子
-    description: "JVM 与并发、密码学与安全、Git 与协作流程 —— 不想只会调 API。"
+    description: "Git 与协作流程"
   - slug: notes
     name: 杂记
     description: "读书笔记、工作方法、踩坑记录 —— 不成体系但在沉淀的部分。"
