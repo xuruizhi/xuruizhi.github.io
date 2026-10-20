@@ -4,11 +4,15 @@
 {%- for network in site.social-network-links -%}
 
   {%- if network[0] == "rss" and network[1] and site.rss-description -%}
+  {%- comment -%}
+    订阅源由 jekyll-feed 生成，路径取自 _config.yml 的 feed.path，
+    这里必须读同一个值，否则改了路径图标就会 404。
+  {%- endcomment -%}
   <li class="list-inline-item">
-    <a href="{{ '/feed.xml' | relative_url }}" title="RSS">
+    <a href="{{ site.feed.path | default: 'feed.xml' | relative_url }}" title="RSS" type="application/atom+xml">
       <span class="fa-stack fa-lg" aria-hidden="true">
         <i class="fas fa-circle fa-stack-2x"></i>
-        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        <i class="fas fa-square-rss fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">RSS</span>
     </a>

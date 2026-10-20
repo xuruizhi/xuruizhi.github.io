@@ -54,9 +54,12 @@
   <meta name="keywords" content="{{ site.keywords }}">
   {% endif %}
 
-  {% if site.rss-description %}
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | absolute_url }}">
-  {% endif %}
+  {% comment %}
+    jekyll-feed 提供的标签：会读取 feed.path（_config.yml），自动输出
+    <link rel="alternate" type="application/atom+xml" ...>。
+    之前这里是手写的 link，指向手写的 feed.xml，两者已统一到插件。
+  {% endcomment %}
+  {% feed_meta %}
 
   {% include gtag.html %}
   {% include gtm_head.html %}

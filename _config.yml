@@ -51,7 +51,14 @@ round-avatar: true
 social-network-links:
   email: "ruizhi_xu@163.com"
   github: xuruizhi
+  # 注意：两个 rss 条件必须同时成立，页脚才会渲染 RSS 图标：
+  #   1) 这里的 social-network-links.rss: true
+  #   2) 下面的 rss-description 非空
   rss: true
+
+# RSS「总开关」：页脚图标靠它判断，同时也是站点的 RSS 描述文案。
+# feed.xml 由 jekyll-feed 插件从 _config.yml 的 description 生成，不用这个值。
+rss-description: "一名全职爸爸的 AI 工程笔记：AI 辅助教学。"
 
 share-links-active:
   twitter: false
@@ -104,6 +111,18 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
+
+# ------------------------------------------------------------
+# jekyll-feed：Atom 订阅源（/feed.xml）
+# 插件在构建时生成 feed，并在 build 日志里打印
+#   "Jekyll Feed: Generating feed for posts"
+# 注意：路径用默认的 feed.xml，保持老订阅者的 URL 不变。
+# 插件用 File.exist?(in_source_dir(path)) 判断，只要源码根目录存在
+# 同名 feed.xml 文件就会静默跳过生成 —— 所以那个手写文件必须不存在，
+# 否则你会以为插件在工作，其实用的是旧的手写 RSS。
+# ------------------------------------------------------------
+feed:
+  posts_limit: 20
 
 # ------------------------------------------------------------
 # 栏目（分类）：全站唯一的内容目录
