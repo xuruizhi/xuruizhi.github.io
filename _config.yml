@@ -113,6 +113,9 @@ categories_index:
   - slug: ai-assisted-edu
     name: AI 辅助教学
     description: "Copilot 式补全只是开始，探索 AI 在教学里的真实应用。"
+  - slug: ai-assisted-game
+    name: AI 辅助游戏工程
+    description: "从游戏资源里挖东西：解包、模型导出、渲染管线与本地小工具。"
   - slug: engineering
     name: 工程底子
     description: "Git 与协作流程"
