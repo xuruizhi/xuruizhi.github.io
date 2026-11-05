@@ -95,6 +95,37 @@ description: "在 RTX 4060 Laptop（8GB）上实测五个开源 TTS 引擎的速
 
 对「孩子跟读单词」这个用途，Kokoro 的清晰稳定恰好够了——不追求表演力，追求每个音都咬准。
 
+### 2.6 亲耳听：同一句话，五个引擎
+
+光看文字不如自己点。下面五段是同一句话 `A man can be destroyed but not defeated.`（rate 0.9）由各引擎合成的原始输出，点播放即可直接对比——注意音色、语速和自然的起伏差别，这就是上表「听感」的来源。
+
+<figure style="margin:1em 0;">
+<audio controls preload="none" style="width:100%;max-width:520px;display:block;margin:.3em 0;"><source src="/images/2026.11.05/sample-kokoro.mp3" type="audio/mpeg">你的浏览器不支持音频播放。</audio>
+<figcaption style="font-size:.9em;color:#666;">Kokoro-82M · af_heart（美音女声）——RTF 0.135，最清晰省显存</figcaption>
+</figure>
+
+<figure style="margin:1em 0;">
+<audio controls preload="none" style="width:100%;max-width:520px;display:block;margin:.3em 0;"><source src="/images/2026.11.05/sample-piper.mp3" type="audio/mpeg">你的浏览器不支持音频播放。</audio>
+<figcaption style="font-size:.9em;color:#666;">Piper · en_US-lessac-medium——最快最轻，但机械感明显</figcaption>
+</figure>
+
+<figure style="margin:1em 0;">
+<audio controls preload="none" style="width:100%;max-width:520px;display:block;margin:.3em 0;"><source src="/images/2026.11.05/sample-xtts.mp3" type="audio/mpeg">你的浏览器不支持音频播放。</audio>
+<figcaption style="font-size:.9em;color:#666;">XTTS-v2 · Ana Florence——音色自然，但 RTF 3.02、禁商用</figcaption>
+</figure>
+
+<figure style="margin:1em 0;">
+<audio controls preload="none" style="width:100%;max-width:520px;display:block;margin:.3em 0;"><source src="/images/2026.11.05/sample-chatterbox.mp3" type="audio/mpeg">你的浏览器不支持音频播放。</audio>
+<figcaption style="font-size:.9em;color:#666;">Chatterbox-Turbo——表达力最强、接近真人，但慢且吃 2.9GB</figcaption>
+</figure>
+
+<figure style="margin:1em 0;">
+<audio controls preload="none" style="width:100%;max-width:520px;display:block;margin:.3em 0;"><source src="/images/2026.11.05/sample-cosyvoice.mp3" type="audio/mpeg">你的浏览器不支持音频播放。</audio>
+<figcaption style="font-size:.9em;color:#666;">CosyVoice-300M · 英文女——自然但语速偏慢，RTF 4.07</figcaption>
+</figure>
+
+> 五段音频均为本地引擎真实合成的原始输出（未做任何后期处理），与 `samples/` 目录下的 WAV 一致，这里转成 mp3 只是为了让网页加载更快。
+
 ## 三、架构：为什么五个引擎各住一间屋
 
 选完引擎只是开始。真正的麻烦在于：**这五个引擎的依赖互相打架，装不进同一个 Python 环境**。
